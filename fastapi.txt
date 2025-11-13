@@ -1,0 +1,44 @@
+# 서버 및 기본
+
+FastAPI() → FastAPI 앱 객체 생성
+
+uvicorn main:app --reload → 서버 실행
+-----------------------------------------------
+라우팅 (@app.get, @app.post, @app.put, @app.delete)
+
+입력 (Path, Query, Body)
+
+출력 (자동 JSON, 상태코드, 응답 타입)
+---------------------------------------------------------
+# 라우팅 (엔드포인트 정의)
+
+@app.get("/items")	모든 아이템 조회	
+@app.get("/items/{item_id}")	item_id로 특정 아이템 조회	
+@app.get("/items/{item_id}/{key}")	item_id와 key(예: name, price)로 특정 값 조회	
+@app.get("/item-by-name")	Query parameter로 이름(name) 검색	
+@app.post("/items/{item_id}")	아이템 생성 (새로운 item_id와 본문 body)	
+@app.put("/items/{item_id}")	아이템 수정 (name/price 일부 업데이트 가능)	
+@app.delete("/items/{item_id}")	아이템 삭제
+-----------------------------------------------------
+입력 (Path, Query, Body)
+
+Path Parameter
+/items/{item_id}
+/items/{item_id}/{key}
+/items/{item_id} (POST, PUT, DELETE에서도 사용)
+> 함수 인자로 item_id: int, key: str 받아옴
+
+Query Parameter
+/item-by-name?name=라면
+def read_item_by_name(name: str)
+
+Request Body (Body Parameter)
+POST (생성) → Item 모델 사용
+class Item(BaseModel):
+    name: str
+    price: int
+
+PUT (수정) → ItemForUpdate 모델 사용 (Optional)
+class ItemForUpdate(BaseModel):
+    name: Optional[str]
+    price: Optional[int]
