@@ -1,0 +1,35 @@
+# streamlit 명령어
+
+st.title, st.subheader, st.write: 텍스트 출력
+
+st.text_input: 사용자 입력 필드
+
+st.selectbox, st.checkbox, st.multiselect: 선택 위젯
+
+st.sidebar: 사이드바에 메뉴 추가
+
+st.columns: 레이아웃 분할
+
+st.tabs: 탭 구조
+
+st.image: 이미지 출력
+
+실행 
+Vscode 터미널에서
+
+1. 경로 변경
+cd C:\Users\thswj\Desktop
+
+2. 그런 다음 스트림릿 실행 명령어를 다시 입력
+
+# 기본실행
+streamlit run app1.py
+python -m streamlit run app.py (경로가 안집히는 경우)
+
+# Python 3.12를 명시적으로 사용
+C:\Users\thswj\AppData\Local\Programs\Python\Python312\python.exe -m streamlit run app1.py
+
+# 원하는 버전을 지정하여 실행
+py -3.12 -m streamlit run app1.py
+
+3. 
